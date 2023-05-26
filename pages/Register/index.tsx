@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import Input from "../../components/Input";
+import Layout from "../layout";
 
 interface IRegisterState {
   name: string;
@@ -26,7 +27,7 @@ export default function Register() {
   console.log(data);
 
   return (
-    <div>
+    <Layout>
       <h1>Register</h1>
       <Input
         label="Name"
@@ -56,6 +57,6 @@ export default function Register() {
         onChange={handleChange}
         type="text"
       />
-    </div>
+    </Layout>
   );
 }

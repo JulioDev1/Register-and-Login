@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import Input from "../../components/Input";
+import Layout from "../layout";
 
 interface ILoginState {
   email: string;
@@ -21,7 +22,7 @@ export default function Login() {
   }
   console.log(data);
   return (
-    <div>
+    <Layout>
       <h1>Login</h1>
       <Input
         label="Email"
@@ -37,6 +38,6 @@ export default function Login() {
         name="password"
         onChange={handleChange}
       />
-    </div>
+    </Layout>
   );
 }

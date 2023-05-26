@@ -6,6 +6,7 @@ interface InputProps {
   value: string;
   label: string;
   name: string;
+  placeholder: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 export default function Input({
@@ -14,11 +15,18 @@ export default function Input({
   label,
   name,
   onChange,
+  placeholder,
 }: InputProps) {
   return (
     <InputContainer>
       <label>{label}</label>
-      <input type={type} value={value} onChange={onChange} name={name} />
+      <input
+        placeholder={placeholder}
+        type={type}
+        value={value}
+        onChange={onChange}
+        name={name}
+      />
     </InputContainer>
   );
 }

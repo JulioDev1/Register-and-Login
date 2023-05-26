@@ -1,13 +1,11 @@
 import type { NextPage } from "next";
-import Login from "./Login";
-import Register from "./Register";
-import Link from "next/link";
+import Layout from "./layout";
 const Home: NextPage = () => {
   return (
-    <div>
-      {/* <Login /> */}
-      <Register />
-    </div>
+    <Layout>
+      Form
+      <h1>bem vindo</h1>
+    </Layout>
   );
 };
 
