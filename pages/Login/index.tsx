@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from "react";
 import Input from "../../components/Input";
 import Layout from "../layout";
 import { FormContainer, Title } from "../_styled";
-import { NavBarButtons } from "../../components/ButtonNav/styled";
 import Button from "../../components/Button";
 
 interface ILoginState {
@@ -27,7 +26,7 @@ export default function Login() {
   return (
     <Layout>
       <FormContainer>
-        <Title>Login</Title>
+        <Title>Login in to your Account</Title>
         <Input
           label="Email"
           type="text"
@@ -44,7 +43,7 @@ export default function Login() {
           onChange={handleChange}
           placeholder="digite sua senha"
         />
-        <Button />
+        <Button type="submit" />
       </FormContainer>
     </Layout>
   );

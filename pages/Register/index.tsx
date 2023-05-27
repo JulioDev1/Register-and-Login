@@ -1,9 +1,9 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Input from "../../components/Input";
 import Layout from "../layout";
 import { FormContainer, Title } from "../_styled";
-import { NavBarButtons } from "../../components/ButtonNav/styled";
 import Button from "../../components/Button";
+import { useRouter } from "next/router";
 
 interface IRegisterState {
   name: string;
@@ -11,6 +11,13 @@ interface IRegisterState {
   password: string;
   repeatPassword: string;
 }
+interface IData {
+  name: string;
+  email: string;
+  password: string;
+  repeatPassword: string;
+}
+
 export default function Register() {
   const [data, setData] = useState<IRegisterState>({
     name: "",
@@ -18,6 +25,7 @@ export default function Register() {
     password: "",
     repeatPassword: "",
   });
+  const router = useRouter();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -27,11 +35,27 @@ export default function Register() {
     });
   }
 
-  console.log(data);
+  function verifyFilledInput(datas: IData): boolean {
+    for (const key in datas) {
+      if (!datas[key as keyof IData]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (verifyFilledInput(data)) {
+      router.push("/welcomePage");
+    } else {
+      return;
+    }
+  }
 
   return (
     <Layout>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit}>
         <Title>Register</Title>
         <Input
           label="Name"
@@ -54,7 +78,7 @@ export default function Register() {
           value={data.password}
           name="password"
           onChange={handleChange}
-          type="text"
+          type="password"
           placeholder="digite sua senha"
         />
         <Input
@@ -65,7 +89,7 @@ export default function Register() {
           type="text"
           placeholder="repita sua senha"
         />
-        <Button />
+        <Button type="submit" />
       </FormContainer>
     </Layout>
   );

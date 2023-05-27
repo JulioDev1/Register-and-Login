@@ -1,5 +1,8 @@
 import { StyledButton } from "../styled";
 
-export default function Button() {
-  return <StyledButton>Registrar</StyledButton>;
+interface IButton {
+  type: "submit";
+}
+export default function Button({ type }: IButton) {
+  return <StyledButton type={type}>Registrar</StyledButton>;
 }

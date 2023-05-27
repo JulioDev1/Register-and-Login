@@ -5,9 +5,6 @@ export const InputContainer = styled.div`
   flex-direction: column;
   align-items: center;
   max-height: 40rem;
-  ::placeholder {
-    padding: 20px;
-  }
 `;
 export const InputLabel = styled.div`
   max-width: 200rem;
