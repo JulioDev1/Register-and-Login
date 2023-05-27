@@ -1,13 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-    html,
+html,
 body {
-  padding: 0;
-  margin: 0;
+  height:100%;
   font-family:"Roboto", sans-serif;
-  height: 100%;
-
 }
 
 a {
@@ -17,6 +14,8 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 `;

@@ -1,6 +1,9 @@
 import { ChangeEvent, useState } from "react";
 import Input from "../../components/Input";
 import Layout from "../layout";
+import { FormContainer, Title } from "../_styled";
+import { NavBarButtons } from "../../components/ButtonNav/styled";
+import Button from "../../components/Button";
 
 interface ILoginState {
   email: string;
@@ -23,21 +26,26 @@ export default function Login() {
   console.log(data);
   return (
     <Layout>
-      <h1>Login</h1>
-      <Input
-        label="Email"
-        type="text"
-        value={data.email}
-        name="email"
-        onChange={handleChange}
-      />
-      <Input
-        label="Password"
-        type="text"
-        value={data.password}
-        name="password"
-        onChange={handleChange}
-      />
+      <FormContainer>
+        <Title>Login</Title>
+        <Input
+          label="Email"
+          type="text"
+          value={data.email}
+          name="email"
+          onChange={handleChange}
+          placeholder="digite seu email"
+        />
+        <Input
+          label="Password"
+          type="text"
+          value={data.password}
+          name="password"
+          onChange={handleChange}
+          placeholder="digite sua senha"
+        />
+        <Button />
+      </FormContainer>
     </Layout>
   );
 }

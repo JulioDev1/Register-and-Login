@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { NavBarButtons, ButtonNavbar } from "./styled";
 
 export default function ButtonNav() {
   const router = useRouter();
@@ -6,9 +7,13 @@ export default function ButtonNav() {
     router.push(link);
   }
   return (
-    <div>
-      <button onClick={() => handleChangeRoute("/login")}>Login</button>
-      <button onClick={() => handleChangeRoute("/register")}>Sign Up</button>
-    </div>
+    <NavBarButtons>
+      <ButtonNavbar onClick={() => handleChangeRoute("/login")}>
+        Login
+      </ButtonNavbar>
+      <ButtonNavbar onClick={() => handleChangeRoute("/register")}>
+        Sign Up
+      </ButtonNavbar>
+    </NavBarButtons>
   );
 }

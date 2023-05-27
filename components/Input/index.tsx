@@ -1,5 +1,6 @@
 import { ChangeEvent } from "react";
-import { InputContainer } from "./styled";
+import { InputContainer, InputLabel } from "./styled";
+import { InputStyled, Label, StyledButton } from "../styled";
 
 interface InputProps {
   type: string;
@@ -18,15 +19,17 @@ export default function Input({
   placeholder,
 }: InputProps) {
   return (
-    <InputContainer>
-      <label>{label}</label>
-      <input
-        placeholder={placeholder}
-        type={type}
-        value={value}
-        onChange={onChange}
-        name={name}
-      />
-    </InputContainer>
+    <InputLabel>
+      <Label>{label}</Label>
+      <InputContainer>
+        <InputStyled
+          placeholder={placeholder}
+          type={type}
+          value={value}
+          onChange={onChange}
+          name={name}
+        />
+      </InputContainer>
+    </InputLabel>
   );
 }

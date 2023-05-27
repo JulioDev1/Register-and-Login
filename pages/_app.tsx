@@ -5,10 +5,8 @@ import { FormContainer } from "./_styled";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <FormContainer>
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </FormContainer>
+      <GlobalStyles />
+      <Component {...pageProps} />
     </>
   );
 }
