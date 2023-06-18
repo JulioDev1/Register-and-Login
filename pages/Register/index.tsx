@@ -4,6 +4,10 @@ import Layout from "../layout";
 import { FormContainer, Title } from "../_styled";
 import Button from "../../components/Button";
 import { useRouter } from "next/router";
+import { User } from "../../icons/User";
+import { Email } from "../../icons/Email";
+import { Lock } from "../../icons/Lock";
+import { SeePassword } from "../../icons/SeePassword";
 
 interface IRegisterState {
   name: string;
@@ -19,13 +23,13 @@ interface IData {
 }
 
 export default function Register() {
+  const router = useRouter();
   const [data, setData] = useState<IRegisterState>({
     name: "",
     email: "",
     password: "",
     repeatPassword: "",
   });
-  const router = useRouter();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -63,7 +67,8 @@ export default function Register() {
           name="name"
           onChange={handleChange}
           type="text"
-          placeholder="digite seu nome"
+          placeholder="Digite seu nome"
+          icons={<User />}
         />
         <Input
           label="Email"
@@ -71,7 +76,8 @@ export default function Register() {
           name="email"
           onChange={handleChange}
           type="text"
-          placeholder="digite seu email"
+          placeholder="Digite seu email"
+          icons={<Email />}
         />
         <Input
           label="Password"
@@ -79,7 +85,9 @@ export default function Register() {
           name="password"
           onChange={handleChange}
           type="password"
-          placeholder="digite sua senha"
+          placeholder="Digite sua senha"
+          icons={<Lock />}
+          lock={<SeePassword />}
         />
         <Input
           label="Repeat Password"
@@ -87,7 +95,9 @@ export default function Register() {
           name="repeatPassword"
           onChange={handleChange}
           type="text"
-          placeholder="repita sua senha"
+          placeholder="Repita sua senha"
+          icons={<Lock />}
+          lock={<SeePassword />}
         />
         <Button type="submit" />
       </FormContainer>

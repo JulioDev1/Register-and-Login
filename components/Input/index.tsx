@@ -1,6 +1,6 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, ReactNode } from "react";
 import { InputContainer, InputLabel } from "./styled";
-import { InputStyled, Label, StyledButton } from "../styled";
+import { InputStyled, Label, LabelContent } from "../styled";
 
 interface InputProps {
   type: string;
@@ -9,6 +9,8 @@ interface InputProps {
   name: string;
   placeholder: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  icons: ReactNode;
+  lock?: ReactNode;
 }
 export default function Input({
   type,
@@ -17,11 +19,16 @@ export default function Input({
   name,
   onChange,
   placeholder,
+  icons,
+  lock,
 }: InputProps) {
   return (
     <InputLabel>
-      <Label>{label}</Label>
+      <LabelContent>
+        <Label>{label}</Label>
+      </LabelContent>
       <InputContainer>
+        {icons}
         <InputStyled
           placeholder={placeholder}
           type={type}
@@ -29,6 +36,7 @@ export default function Input({
           onChange={onChange}
           name={name}
         />
+        {lock}
       </InputContainer>
     </InputLabel>
   );

@@ -3,6 +3,9 @@ import Input from "../../components/Input";
 import Layout from "../layout";
 import { FormContainer, Title } from "../_styled";
 import Button from "../../components/Button";
+import { Email } from "../../icons/Email";
+import { Lock } from "../../icons/Lock";
+import { SeePassword } from "../../icons/SeePassword";
 
 interface ILoginState {
   email: string;
@@ -34,6 +37,7 @@ export default function Login() {
           name="email"
           onChange={handleChange}
           placeholder="digite seu email"
+          icons={<Email />}
         />
         <Input
           label="Password"
@@ -42,6 +46,8 @@ export default function Login() {
           name="password"
           onChange={handleChange}
           placeholder="digite sua senha"
+          icons={<Lock />}
+          lock={<SeePassword />}
         />
         <Button type="submit" />
       </FormContainer>
