@@ -25,6 +25,11 @@ export default function Login() {
       return newData;
     });
   }
+  const [isVisible, setVisible] = useState(false);
+
+  const toggleButtonVisibility = () => {
+    setVisible(!isVisible);
+  };
   console.log(data);
   return (
     <Layout>
@@ -41,13 +46,13 @@ export default function Login() {
         />
         <Input
           label="Password"
-          type="text"
+          type={isVisible ? "text" : "password"}
           value={data.password}
           name="password"
           onChange={handleChange}
           placeholder="digite sua senha"
           icons={<Lock />}
-          lock={<SeePassword />}
+          lock={<SeePassword onClick={toggleButtonVisibility} />}
         />
         <Button type="submit" />
       </FormContainer>

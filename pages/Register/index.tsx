@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, MouseEvent, useState } from "react";
 import Input from "../../components/Input";
 import Layout from "../layout";
 import { FormContainer, Title } from "../_styled";
@@ -30,6 +30,7 @@ export default function Register() {
     password: "",
     repeatPassword: "",
   });
+  const [isVisible, setVisible] = useState(false);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -56,6 +57,9 @@ export default function Register() {
       return;
     }
   }
+  const toggleButtonVisibility = () => {
+    setVisible(!isVisible);
+  };
 
   return (
     <Layout>
@@ -87,17 +91,16 @@ export default function Register() {
           type="password"
           placeholder="Digite sua senha"
           icons={<Lock />}
-          lock={<SeePassword />}
         />
         <Input
           label="Repeat Password"
           value={data.repeatPassword}
           name="repeatPassword"
           onChange={handleChange}
-          type="text"
+          type={isVisible ? "text" : "password"}
           placeholder="Repita sua senha"
           icons={<Lock />}
-          lock={<SeePassword />}
+          lock={<SeePassword onClick={toggleButtonVisibility} />}
         />
         <Button type="submit" />
       </FormContainer>

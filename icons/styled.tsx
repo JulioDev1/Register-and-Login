@@ -7,6 +7,6 @@ export const Icon = styled.svg`
 `;
 export const Eye = styled.svg`
   position: absolute;
-
+  cursor: pointer;
   right: 10px;
 `;
